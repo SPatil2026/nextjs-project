@@ -1,23 +1,13 @@
 import StartupCard from "@/components/startupcard";
 import SearchForm from "../../components/searchform";
+import { client } from "@/sanity/lib/client";
+import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 
 export default async function Home({searchParams} : {
   searchParams: Promise<{query?:string}>
 }) {
     const query = (await searchParams).query;
-
-    const posts = [
-      {
-        _createdAt: new Date(),
-        views: 55,
-        author: { _id: 1, name: "Andrew"},
-        _id: 1,
-        description: "This is a description",
-        image: "https://www.indiafilings.com/learn/wp-content/uploads/2023/02/What-is-a-startup-business.jpg",
-        category: "Robots",
-        title: "We Robots",
-      }
-    ]
+    const posts = await client.fetch(STARTUPS_QUERY);
 
   return (
     <>
