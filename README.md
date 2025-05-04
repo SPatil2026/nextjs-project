@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Startup Platform
+
+A modern web platform for entrepreneurs to pitch their startups, connect with others, and participate in virtual competitions.
+
+## Features
+
+- 🚀 Pitch Startups: Submit and showcase your startup ideas
+- 👥 User Profiles: Detailed profiles for entrepreneurs
+- 🔍 Search & Discovery: Find startups by category or keywords
+- 📊 View Analytics: Track startup post engagement
+- ✍️ Rich Content: Markdown support for pitch descriptions
+- 🔄 Real-time Updates: Live content updates using Sanity
+- 🔐 Authentication: GitHub authentication integration
+
+## Tech Stack
+
+- **Frontend**: Next.js 14, TypeScript, TailwindCSS
+- **Backend**: Sanity.io CMS
+- **Authentication**: NextAuth.js with GitHub provider
+- **Styling**: Custom TailwindCSS configuration with Work Sans font
+- **Content**: Markdown support with sanity-plugin-markdown
 
 ## Getting Started
 
-First, run the development server:
-
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <your-repo-url>
+cd nextjs-project
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up environment variables:
+Create a `.env.local` file with:
+```plaintext
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2025-05-01
+SANITY_WRITE_TOKEN=your_write_token
+GITHUB_ID=your_github_id
+GITHUB_SECRET=your_github_secret
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Run the development server:
+```bash
+npm run dev
+```
 
-## Learn More
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+├── app/                   # Next.js app directory
+│   ├── (root)/           # Main application routes
+│   ├── studio/           # Sanity Studio integration
+│   └── api/              # API routes
+├── components/           # React components
+├── sanity/              # Sanity configuration
+│   ├── lib/             # Sanity utilities
+│   └── schemaTypes/     # Content schemas
+└── lib/                 # Utility functions
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Features in Detail
 
-## Deploy on Vercel
+### Authentication
+- GitHub OAuth integration
+- Protected routes for authenticated users
+- User profile management
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Content Management
+- Rich text editing with Markdown
+- Image upload and management
+- Real-time content updates
+- Category-based organization
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### User Interface
+- Responsive design
+- Custom animations
+- Interactive components
+- Loading states and error handling
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- [Next.js](https://nextjs.org/)
+- [Sanity.io](https://www.sanity.io/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [NextAuth.js](https://next-auth.js.org/)
