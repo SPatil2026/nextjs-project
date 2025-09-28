@@ -8,10 +8,12 @@ import 'server-only'
 const View = async ({id}: {id:string }) => {
   const { views: totalviews } = await client.withConfig({useCdn: false}).fetch(STARTUP_VIEWS_QUERY, {id});
 
-  await writeClient
+  // Update views count
+  writeClient
     .patch(id)
     .set({views: totalviews+1})
-    .commit();
+    .commit()
+    .catch(console.error);
 
   return (
     <div className='view-container'>
